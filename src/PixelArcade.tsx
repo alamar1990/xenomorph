@@ -28,7 +28,7 @@ const PixelArcade = () => {
 
   return (
     <div
-      className="min-h-screen bg-[#110a1f] text-white font-pixel relative overflow-x-hidden selection:bg-green-400 selection:text-black">
+      className="min-h-screen w-full bg-[#110a1f] text-white font-pixel relative overflow-x-hidden selection:bg-green-400 selection:text-black">
 
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div
@@ -43,7 +43,8 @@ const PixelArcade = () => {
       <div
         className="fixed inset-0 z-50 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px]"/>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-8 flex flex-col h-full">
+      <div
+        className="relative z-10 w-full max-w-7xl mx-auto px-4 py-4 md:py-8 flex flex-col min-h-screen overflow-hidden">
 
         <header className="flex flex-col items-center mb-12">
           <h1 className="text-4xl md:text-6xl text-center mb-8 tracking-widest uppercase relative group cursor-default">
@@ -74,7 +75,7 @@ const PixelArcade = () => {
           </nav>
         </header>
 
-        <main className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-center">
+        <main className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8 mb-8 md:mb-16 items-center w-full">
 
           <div className="lg:col-span-3 flex flex-col gap-6">
             {leftProjects.map((p, i) => (
@@ -154,11 +155,11 @@ const PixelArcade = () => {
 
 const ArcadeCard = ({project}: { project: { title: string, desc: string, icon: JSX.Element } }) => (
   <div
-    className="group relative bg-[#1c1233] border-4 border-[#372661] hover:border-cyan-400 rounded-lg p-2 flex gap-3 items-start transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] cursor-pointer h-28 overflow-hidden">
+    className="group relative bg-[#1c1233] border-4 border-[#372661] hover:border-cyan-400 rounded-lg p-2 flex gap-3 items-center transition-all duration-200 cursor-pointer h-20 md:h-28 overflow-hidden">
 
     <div
-      className="w-20 h-20 bg-[#110a1f] border-2 border-[#4c3b73] shrink-0 rounded flex items-center justify-center group-hover:bg-[#1a1b2e] transition-colors">
-      <div className="text-purple-400 group-hover:text-cyan-300 transition-colors">
+      className="w-12 h-12 md:w-20 md:h-20 bg-[#110a1f] border-2 border-[#4c3b73] shrink-0 rounded flex items-center justify-center">
+      <div className="scale-75 md:scale-100 text-purple-400 group-hover:text-cyan-300">
         {project.icon}
       </div>
     </div>
@@ -185,8 +186,8 @@ const StatItem = ({label, value, color, barColor}: {
   color: string,
   barColor: string
 }) => (
-  <div className="flex items-center gap-3 mb-3 w-full">
-    <div className={`w-30 sm:w-34 text-xs md:text-sm ${color} font-bold text-right shrink-0`}>
+  <div className="flex items-center gap-2 mb-5 w-full">
+    <div className={`w-20 sm:w-34 text-[8px] md:text-sm ${color} font-bold text-right shrink-0`}>
       {label}
     </div>
     <div className="relative flex-1">
