@@ -29,7 +29,6 @@ const PixelArcade = () => {
   return (
     <div
       className="min-h-screen w-full bg-[#110a1f] text-white font-pixel relative overflow-x-hidden selection:bg-green-400 selection:text-black">
-
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div
           className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#2d1b4e] via-[#110a1f] to-[#000000]"></div>
@@ -42,81 +41,100 @@ const PixelArcade = () => {
 
       <div
         className="fixed inset-0 z-50 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px]"/>
-
       <div
         className="relative z-10 w-full max-w-7xl mx-auto px-4 py-4 md:py-8 flex flex-col min-h-screen overflow-hidden">
-
         <header className="flex flex-col items-center mb-12">
-          <h1 className="text-4xl md:text-6xl text-center mb-8 tracking-widest uppercase relative group cursor-default">
-            <span
-              className="text-transparent bg-clip-text bg-gradient-to-b from-cyan-300 to-teal-600 drop-shadow-[0_4px_0_rgba(0,0,0,0.5)]">
-              XENOMORPHDEV
-            </span>
-            <span
-              className="inline-block ml-4 text-cyan-400 drop-shadow-[0_0_10px_rgba(34,211,238,0.8)] animate-bounce">
-              👽
-            </span>
+          <h1
+            className="w-full max-w-full text-center mb-4 sm:mb-8 tracking-wider sm:tracking-widest uppercase relative group cursor-default px-2 sm:px-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-0 sm:gap-2 md:gap-4">
+              <span
+                className="text-xl xs:text-2xl sm:text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-cyan-300 to-teal-600 drop-shadow-[0_2px_0_rgba(0,0,0,0.5)] sm:drop-shadow-[0_4px_0_rgba(0,0,0,0.5)] leading-tight">
+                XENOMORPH
+              </span>
+              <span
+                className="text-xl xs:text-2xl sm:text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-cyan-300 to-teal-600 drop-shadow-[0_2px_0_rgba(0,0,0,0.5)] sm:drop-shadow-[0_4px_0_rgba(0,0,0,0.5)] leading-tight">
+                {'{DEV}'}
+              </span>
+              <span
+                className="text-cyan-400 drop-shadow-[0_0_10px_rgba(34,211,238,0.8)] animate-bounce text-2xl sm:text-5xl ml-0 sm:ml-2 md:ml-4">
+                👽
+              </span>
+            </div>
           </h1>
 
-          <nav
-            className="bg-[#2d1b4e] border-4 border-[#4c3b73] rounded-2xl px-2 py-2 shadow-[0_10px_20px_rgba(0,0,0,0.5)] inline-flex gap-4 relative">
-            {/* Decorative shine on nav */}
-            <div className="absolute top-1 left-4 right-4 h-1 bg-white/10 rounded-full"></div>
-
-            {['PROJECTS', 'ABOUT', 'CONTACT'].map((item) => (
-              <button
-                key={item}
-                onClick={() => handleNav(item)}
-                className="px-6 py-2 text-sm md:text-base font-bold text-gray-300 hover:text-white hover:bg-[#584285] rounded-xl transition-all uppercase tracking-wide"
-              >
-                {item}
-              </button>
-            ))}
+          <nav className="w-full max-w-xs sm:max-w-md mx-auto bg-[#2d1b4e] border-2 sm:border-4 border-[#4c3b73]
+                rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.5)] overflow-hidden">
+            <div className="absolute top-1 left-2 right-2 h-0.5 sm:h-1 bg-white/10 rounded-full hidden sm:block"></div>
+            <div className="flex flex-col gap-1 sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-[#4c3b73]/50">
+              {['PROJECTS', 'ABOUT', 'CONTACT'].map((item) => (
+                <NavButton
+                  key={item}
+                  label={item}
+                  onClick={() => handleNav(item)}
+                />
+              ))}
+            </div>
           </nav>
         </header>
 
-        <main className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8 mb-8 md:mb-16 items-center w-full">
-
-          <div className="lg:col-span-3 flex flex-col gap-6">
+        <main
+          className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-16 w-full max-w-[2000px] mx-auto px-2 sm:px-4">
+          {/* Left Projects Column */}
+          <div
+            className="col-span-4 lg:col-span-1 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-1 gap-2 sm:gap-3 md:gap-4">
             {leftProjects.map((p, i) => (
-              <ArcadeCard key={i} project={p}/>
+              <div key={i} className="col-span-2 sm:col-span-1 md:col-span-2 lg:col-span-1">
+                <ArcadeCard project={p}/>
+              </div>
             ))}
           </div>
 
-          <div className="lg:col-span-6 flex flex-col items-center justify-center relative min-h-[400px]">
-            <div className="absolute top-0 right-20 text-purple-400 opacity-50 text-xl animate-bounce">👾</div>
-            <div className="absolute bottom-10 left-10 text-cyan-400 opacity-50 text-xl animate-pulse">💾</div>
+          {/* Center Content */}
+          <div
+            className="col-span-4 lg:col-span-2 flex flex-col items-center justify-center relative min-h-[300px] md:min-h-[400px] lg:min-h-[500px] p-2 sm:p-4">
+            <div
+              className="absolute top-2 right-2 sm:right-4 md:right-8 lg:right-12 text-purple-400 opacity-50 text-lg sm:text-xl md:text-2xl animate-bounce">👾
+            </div>
+            <div
+              className="absolute bottom-4 left-2 sm:left-4 md:left-8 lg:left-12 text-cyan-400 opacity-50 text-lg sm:text-xl md:text-2xl animate-pulse">💾
+            </div>
 
-            <div className="relative w-full aspect-square max-w-[500px] flex items-center justify-center">
+            <div
+              className="relative w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[60vw] lg:max-w-[500px] aspect-square flex items-center justify-center">
               <div
-                className="absolute inset-10 bg-gradient-to-tr from-purple-600/30 to-cyan-600/30 blur-3xl rounded-full animate-pulse"></div>
-
-              <div className="relative z-10 text-center transform hover:scale-105 transition-transform duration-500">
-                <div className="text-9xl mb-4 drop-shadow-[0_0_25px_rgba(74,222,128,0.5)]">👨‍🚀</div>
-
+                className="absolute inset-4 sm:inset-6 md:inset-8 lg:inset-10 bg-gradient-to-tr from-purple-600/30 to-cyan-600/30 blur-2xl md:blur-3xl rounded-full animate-pulse"></div>
+              <div
+                className="relative z-10 text-center transform hover:scale-105 transition-transform duration-500 w-full h-full flex flex-col items-center justify-center">
                 <div
-                  className="absolute -top-4 -right-8 bg-[#1a1b26] border border-cyan-500/50 p-2 rounded text-[8px] text-green-400 font-mono text-left opacity-80 shadow-lg hidden md:block">
+                  className="text-7xl sm:text-8xl md:text-9xl mb-2 sm:mb-3 md:mb-4 drop-shadow-[0_0_25px_rgba(74,222,128,0.5)]">👨‍🚀
+                </div>
+                <div
+                  className="absolute -top-2 -right-4 sm:-top-3 sm:-right-6 md:-top-4 md:-right-8 bg-[#1a1b26] border border-cyan-500/50 p-1 sm:p-1.5 md:p-2 rounded text-[6px] sm:text-[7px] md:text-[8px] text-green-400 font-mono text-left opacity-80 shadow-lg hidden md:block">
                   const world = new World();
                 </div>
                 <div
-                  className="absolute bottom-10 -left-12 bg-[#1a1b26] border border-purple-500/50 p-2 rounded text-[8px] text-purple-300 font-mono text-left opacity-80 shadow-lg hidden md:block">
+                  className="absolute bottom-6 -left-8 sm:bottom-8 sm:-left-10 md:bottom-10 md:-left-12 bg-[#1a1b26] border border-purple-500/50 p-1 sm:p-1.5 md:p-2 rounded text-[6px] sm:text-[7px] md:text-[8px] text-purple-300 font-mono text-left opacity-80 shadow-lg hidden md:block">
                   npm install universe
                 </div>
               </div>
             </div>
 
             <div
-              className="mt-[-20px] bg-[#110a1f]/80 px-6 py-2 rounded-full border border-purple-500/30 backdrop-blur-sm">
-              <p className="text-sm text-cyan-300 tracking-wider">
+              className="mt-2 sm:mt-0 bg-[#110a1f]/80 px-4 sm:px-5 md:px-6 py-1.5 sm:py-2 rounded-full border border-purple-500/30 backdrop-blur-sm w-auto">
+              <p className="text-xs sm:text-sm text-cyan-300 tracking-wider whitespace-nowrap">
                 {"> PRESS START TO BEGIN"}
-                <span className={`ml-1 ${blink ? 'opacity-100' : 'opacity-0'}`}>_</span>
+                <span className={`ml-0.5 ${blink ? 'opacity-100' : 'opacity-0'}`}>_</span>
               </p>
             </div>
           </div>
 
-          <div className="lg:col-span-3 flex flex-col gap-6">
+          {/* Right Projects Column */}
+          <div
+            className="col-span-4 lg:col-span-1 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-1 gap-2 sm:gap-3 md:gap-4 mt-4 lg:mt-0">
             {rightProjects.map((p, i) => (
-              <ArcadeCard key={i} project={p}/>
+              <div key={i} className="col-span-2 sm:col-span-1 md:col-span-2 lg:col-span-1">
+                <ArcadeCard project={p}/>
+              </div>
             ))}
           </div>
 
@@ -152,6 +170,23 @@ const PixelArcade = () => {
     </div>
   );
 };
+
+const NavButton = ({
+                     label,
+                     onClick
+                   }: {
+  label: string;
+  onClick: () => void
+}) => (
+  <button
+    onClick={onClick}
+    className="px-4 py-2 sm:py-3 text-xs sm:text-sm md:text-base font-bold text-gray-300
+               hover:text-white hover:bg-[#584285] transition-all uppercase tracking-tight
+               whitespace-nowrap w-full sm:w-auto text-center"
+  >
+    {label}
+  </button>
+);
 
 const ArcadeCard = ({project}: { project: { title: string, desc: string, icon: JSX.Element } }) => (
   <div
