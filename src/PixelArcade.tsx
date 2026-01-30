@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
-import {Terminal, Cpu, Database, Code, Zap, Globe, Layout, Server, Gamepad2, Rocket, Bot} from 'lucide-react';
+import type {JSX} from 'react';
+import {Terminal, Database, Globe, Layout, Server, Gamepad2, Rocket, Bot} from 'lucide-react';
 
 const PixelArcade = () => {
   const [blink, setBlink] = useState(true);
@@ -9,7 +10,7 @@ const PixelArcade = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleNav = (section) => console.log(`Navigating: ${section}`);
+  const handleNav = (section: string) => console.log(`Navigating: ${section}`);
 
   const leftProjects = [
     {title: "PIXEL SPACESHIP", desc: "Pixel spaceships explore the games in pro.", icon: <Rocket size={20}/>},
@@ -114,7 +115,7 @@ const PixelArcade = () => {
 
           <div className="lg:col-span-3 flex flex-col gap-6">
             {rightProjects.map((p, i) => (
-              <ArcadeCard key={i} project={p} reverse/>
+              <ArcadeCard key={i} project={p}/>
             ))}
           </div>
 
@@ -151,7 +152,7 @@ const PixelArcade = () => {
   );
 };
 
-const ArcadeCard = ({project, reverse}) => (
+const ArcadeCard = ({project}: { project: { title: string, desc: string, icon: JSX.Element } }) => (
   <div
     className="group relative bg-[#1c1233] border-4 border-[#372661] hover:border-cyan-400 rounded-lg p-2 flex gap-3 items-start transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] cursor-pointer h-28 overflow-hidden">
 
@@ -178,7 +179,12 @@ const ArcadeCard = ({project, reverse}) => (
   </div>
 );
 
-const StatItem = ({label, value, color, barColor}) => (
+const StatItem = ({label, value, color, barColor}: {
+  label: string,
+  value: string,
+  color: string,
+  barColor: string
+}) => (
   <div className="flex items-center gap-3 mb-3 w-full">
     <div className={`w-30 sm:w-34 text-xs md:text-sm ${color} font-bold text-right shrink-0`}>
       {label}
