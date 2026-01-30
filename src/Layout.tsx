@@ -66,7 +66,7 @@ export default function Layout() {
         </main>
 
         <footer className="text-center text-[10px] text-purple-400/50 mt-12 pb-4 shrink-0">
-          © 2026 XENOMORPHDEV // ALL RIGHTS RESERVED
+          {`© ${new Date().getFullYear()} XENOMORPHDEV // ALL RIGHTS RESERVED`}
         </footer>
       </div>
 
