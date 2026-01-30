@@ -8,7 +8,7 @@ import ContactPage from "./pages/ContactPage.tsx";
 
 const PixelArcade = () => {
   return (
-    <HashRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>}/>
