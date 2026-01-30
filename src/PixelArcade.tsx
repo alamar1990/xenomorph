@@ -106,7 +106,7 @@ const PixelArcade = () => {
             <div
               className="mt-[-20px] bg-[#110a1f]/80 px-6 py-2 rounded-full border border-purple-500/30 backdrop-blur-sm">
               <p className="text-sm text-cyan-300 tracking-wider">
-                > PRESS START TO BEGIN
+                {"> PRESS START TO BEGIN"}
                 <span className={`ml-1 ${blink ? 'opacity-100' : 'opacity-0'}`}>_</span>
               </p>
             </div>
