@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {HashRouter, Routes, Route} from 'react-router-dom';
 import Layout from "./Layout.tsx";
 import StatItem from "./components/StatItem.tsx";
 import ProjectsPage from "./pages/ProjectsPage.tsx";
@@ -8,7 +8,7 @@ import ContactPage from "./pages/ContactPage.tsx";
 
 const PixelArcade = () => {
   return (
-    <BrowserRouter>
+    <HashRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Home/>}/>
@@ -17,7 +17,7 @@ const PixelArcade = () => {
           <Route path="contact" element={<ContactPage/>}/>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
