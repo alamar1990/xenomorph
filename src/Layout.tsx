@@ -49,8 +49,8 @@ export default function Layout() {
           </h1>
 
           <nav
-            className="w-full max-w-xs sm:max-w-md mx-auto bg-[#2d1b4e] border-2 sm:border-4 border-[#4c3b73] rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.5)] overflow-hidden">
-            <div className="flex flex-col gap-1 sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-[#4c3b73]/50">
+            className="w-fit mx-auto bg-[#2d1b4e] border-2 sm:border-4 border-[#4c3b73] rounded-2xl shadow-[0_10px_20px_rgba(0,0,0,0.5)] overflow-hidden">
+            <div className="flex gap-1 flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-[#4c3b73]/50">
               <NavButton label="HOME" onClick={() => handleNav('/')} active={location.pathname === '/'}/>
               <NavButton label="PROJECTS" onClick={() => handleNav('/projects')}
                          active={location.pathname === '/projects'}/>
