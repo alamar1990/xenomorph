@@ -1,5 +1,5 @@
 import {
-  Terminal, Database, Globe, Layout as LayoutIcon, Server, Gamepad2, Rocket, Bot, Briefcase, Calendar, MapPin,
+  Terminal, Database, Globe, Layout as LayoutIcon, Server, Gamepad2, Rocket, Bot, Briefcase, Calendar,
   Download
 } from 'lucide-react';
 import ArcadeCard from "../components/ArcadeCard";
@@ -94,12 +94,13 @@ const ProjectsPage = () => {
                     <h3 className="text-sm font-bold text-white uppercase tracking-wide">{job.role}</h3>
                   </div>
 
-                  <div className="flex flex-wrap gap-x-4 text-[10px] text-purple-300 font-mono mb-2 opacity-80">
-                    <span className="flex items-center gap-1">
-                      <Briefcase size={10}/> {job.company}
+                  <div
+                    className="flex flex-wrap items-center gap-x-4 text-[10px] text-purple-300 font-mono mb-2 opacity-80">
+                    <span className="flex items-center gap-1.5">
+                      <Briefcase size={10} className="flex-shrink-0"/> {job.company}
                     </span>
-                    <span className="flex items-center gap-1 text-cyan-300">
-                      <Calendar size={10}/> {job.date}
+                    <span className="flex items-center gap-1.5 text-cyan-300">
+                      <Calendar size={10} className="flex-shrink-0"/> {job.date}
                     </span>
                   </div>
 
