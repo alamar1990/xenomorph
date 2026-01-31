@@ -117,9 +117,9 @@ const AboutPage = () => {
                   builds things for the web because I genuinely love it.
                 </p>
                 <p>
-                  I don't just write code; I care about how it feels to use. I'm obsessed with mixing that
-                  old-school <span className="text-purple-300 italic">retro aesthetic</span> with modern, snappy
-                  performance. If it's fast, looks cool, and works perfectly, I probably built it.
+                  I don’t just write code. I care about how it feels to use. I love mixing <span
+                  className="text-purple-300 italic">retro aesthetic</span> with modern performance and building things
+                  that are fast, look cool, and feel smooth from the first click.
                 </p>
               </div>
 

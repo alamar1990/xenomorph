@@ -6,6 +6,14 @@ import ProjectsPage from "./pages/ProjectsPage.tsx";
 import AboutPage from "./pages/AboutPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
 
+interface CodeSnippet {
+  text: string;
+  color: string;
+  border: string;
+  anim: string;
+  style?: React.CSSProperties;
+}
+
 const PixelArcade = () => {
   return (
     <HashRouter>
@@ -23,9 +31,42 @@ const PixelArcade = () => {
 
 const Home = () => {
   const [blink, setBlink] = useState(true);
+  const [snippets, setSnippets] = useState<CodeSnippet[]>([]);
+
+  const rawSnippets = [
+    {text: "const world = new World();", color: "text-green-400", border: "border-cyan-500/50", anim: "animate-pulse"},
+    {text: "npm install universe", color: "text-purple-300", border: "border-purple-500/50", anim: "animate-bounce"},
+    {text: "git push origin master --force", color: "text-red-400", border: "border-red-500/50", anim: "animate-pulse"},
+    {text: "while(alive) { code(); }", color: "text-yellow-300", border: "border-yellow-500/50", anim: "animate-pulse"},
+    {text: "sudo rm -rf /bugs", color: "text-blue-300", border: "border-blue-500/50", anim: "animate-pulse"},
+    {
+      text: "import { Chaos } from 'entropy';",
+      color: "text-pink-400",
+      border: "border-pink-500/50",
+      anim: "animate-pulse"
+    }
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => setBlink(p => !p), 530);
+
+    const randomized = rawSnippets.map(snippet => {
+      const randomTop = Math.floor(Math.random() * 110) - 10;
+      const randomLeft = Math.floor(Math.random() * 120) - 20;
+      const randomDelay = Math.random() * 2;
+
+      return {
+        ...snippet,
+        style: {
+          top: `${randomTop}%`,
+          left: `${randomLeft}%`,
+          animationDelay: `${randomDelay}s`
+        }
+      };
+    });
+
+    setSnippets(randomized);
+
     return () => clearInterval(interval);
   }, []);
 
@@ -35,6 +76,7 @@ const Home = () => {
         <div className="w-full max-w-[2000px] px-2 sm:px-4">
           <div
             className="flex flex-col items-center justify-center w-full min-h-[300px] md:min-h-[400px] lg:min-h-[500px] relative p-2 sm:p-4">
+
             <div
               className="absolute top-2 right-2 sm:right-4 md:right-8 lg:right-12 text-purple-400 opacity-50 text-lg sm:text-xl md:text-2xl animate-bounce">👾
             </div>
@@ -44,22 +86,28 @@ const Home = () => {
 
             <div
               className="relative w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[60vw] lg:max-w-[500px] aspect-square">
+
               <div
                 className="absolute inset-4 sm:inset-6 md:inset-8 lg:inset-10 bg-gradient-to-tr from-purple-600/30 to-cyan-600/30 blur-2xl md:blur-3xl rounded-full animate-pulse"></div>
+
               <div
                 className="relative z-10 w-full h-full flex flex-col items-center justify-center transform hover:scale-105 transition-transform duration-500">
+
                 <div
                   className="text-7xl sm:text-8xl md:text-9xl mb-2 sm:mb-3 md:mb-4 drop-shadow-[0_0_25px_rgba(74,222,128,0.5)]">
                   👨‍🚀
                 </div>
-                <div
-                  className="absolute -top-2 -right-4 sm:-top-3 sm:-right-6 md:-top-4 md:-right-8 bg-[#1a1b26] border border-cyan-500/50 p-1 sm:p-1.5 md:p-2 rounded text-[6px] sm:text-[7px] md:text-[8px] text-green-400 font-mono text-left opacity-80 shadow-lg hidden md:block">
-                  const world = new World();
-                </div>
-                <div
-                  className="absolute bottom-6 -left-8 sm:bottom-8 sm:-left-10 md:bottom-10 md:-left-12 bg-[#1a1b26] border border-purple-500/50 p-1 sm:p-1.5 md:p-2 rounded text-[6px] sm:text-[7px] md:text-[8px] text-purple-300 font-mono text-left opacity-80 shadow-lg hidden md:block">
-                  npm install universe
-                </div>
+
+                {snippets.map((snippet, idx) => (
+                  <div
+                    key={idx}
+                    style={snippet.style}
+                    className={`absolute bg-[#1a1b26] border ${snippet.border} p-1 sm:p-1.5 md:p-2 rounded text-[6px] sm:text-[7px] md:text-[8px] ${snippet.color} font-mono text-left opacity-80 shadow-lg hidden md:block hover:scale-110 transition-transform cursor-help select-none ${snippet.anim}`}
+                  >
+                    {snippet.text}
+                  </div>
+                ))}
+
               </div>
             </div>
 
