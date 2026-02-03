@@ -4,18 +4,68 @@ import {
 } from 'lucide-react';
 import ArcadeCard from "../components/ArcadeCard";
 import resumePdf from "../assets/Alain Marquez Software Engineer.pdf";
+import ipuhoyImage from '../assets/ipuhoy.jpg';
+
 
 const ProjectsPage = () => {
 
   const projects = [
-    {title: "PIXEL SPACESHIP", desc: "Pixel spaceships explore the games in pro.", icon: <Rocket size={20}/>},
-    {title: "RETRO GAME", desc: "A retro game engine built for modern web.", icon: <Gamepad2 size={20}/>},
-    {title: "ROBOT INTERFACE", desc: "Robot automation interface and bot controls.", icon: <Bot size={20}/>},
-    {title: "RETRO GAME II", desc: "Launching a games window to explore.", icon: <Terminal size={20}/>},
-    {title: "ULTIMATE UI", desc: "A component builder for game-used interfaces.", icon: <LayoutIcon size={20}/>},
-    {title: "LINGO API", desc: "Develops a simple API for record storage.", icon: <Database size={20}/>},
-    {title: "CASOLINE", desc: "Developers create own commerce mechanics.", icon: <Globe size={20}/>},
-    {title: "REGIME I", desc: "Developer wise turn-based strategy effort.", icon: <Server size={20}/>},
+    {
+      title: "iPuhoy Portfolio",
+      desc: "A visually rich portfolio showcasing the artist’s style and creativity.",
+      icon: <Rocket size={20}/>,
+      link: "https://ipuhoy.vercel.app/", // Example Link
+      image: ipuhoyImage
+    },
+    {
+      title: "RETRO GAME",
+      desc: "A retro game engine built for modern web.",
+      icon: <Gamepad2 size={20}/>,
+      link: "#",
+      image: null
+    },
+    {
+      title: "ROBOT INTERFACE",
+      desc: "Robot automation interface and bot controls.",
+      icon: <Bot size={20}/>,
+      link: "#",
+      image: "https://placehold.co/600x400/110a1f/a78bfa?text=Robot+UI"
+    },
+    {
+      title: "RETRO GAME II",
+      desc: "Launching a games window to explore.",
+      icon: <Terminal size={20}/>,
+      link: "#",
+      image: null
+    },
+    {
+      title: "ULTIMATE UI",
+      desc: "A component builder for game-used interfaces.",
+      icon: <LayoutIcon size={20}/>,
+      link: "#",
+      image: null
+    },
+    {
+      title: "LINGO API",
+      desc: "Develops a simple API for record storage.",
+      icon: <Database size={20}/>,
+      link: "#",
+      image: null
+    },
+    {
+      title: "CASOLINE",
+      desc: "Developers create own commerce mechanics.",
+      icon: <Globe size={20}/>,
+      link: "#",
+      image: null
+    },
+    {
+      title: "REGIME I",
+      desc: "Developer wise turn-based strategy effort.",
+      icon: <Server size={20}/>,
+      link: "#",
+      image: null
+    },
   ];
 
   const experience = [
@@ -58,6 +108,7 @@ const ProjectsPage = () => {
     <div
       className="w-full h-full min-h-[50vh] border-4 border-[#372661] rounded-xl bg-[#1c1233]/50 p-4 md:p-8 flex flex-col lg:grid lg:grid-cols-12 gap-8">
 
+      {/* --- EXPERIENCE SECTION --- */}
       <div className="lg:col-span-6 lg:order-2 flex flex-col">
         <div className="flex items-center justify-between mb-6 border-b border-[#372661] pb-2">
 
@@ -122,6 +173,8 @@ const ProjectsPage = () => {
           </div>
         </div>
       </div>
+
+      {/* --- PROJECTS SECTION --- */}
       <div className="lg:col-span-6 lg:order-1 flex flex-col">
 
         <div
@@ -140,9 +193,15 @@ const ProjectsPage = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
           {projects.map((p, i) => (
-            <div key={i} className="hover:scale-[1.02] transition-transform duration-200">
+            <a
+              key={i}
+              href={p.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block hover:scale-[1.02] transition-transform duration-200"
+            >
               <ArcadeCard project={p}/>
-            </div>
+            </a>
           ))}
         </div>
       </div>
