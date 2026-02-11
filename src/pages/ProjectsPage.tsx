@@ -5,6 +5,7 @@ import {
 import ArcadeCard from "../components/ArcadeCard";
 import resumePdf from "../assets/Alain Marquez Software Engineer.pdf";
 import ipuhoyImage from '../assets/ipuhoy.jpg';
+import therapyTrack from '../assets/therapyTrack.jpg';
 
 
 const ProjectsPage = () => {
@@ -14,15 +15,15 @@ const ProjectsPage = () => {
       title: "iPuhoy Portfolio",
       desc: "A visually rich portfolio showcasing the artist’s style and creativity.",
       icon: <Rocket size={20}/>,
-      link: "https://ipuhoy.vercel.app/", // Example Link
+      link: "https://ipuhoy.vercel.app/",
       image: ipuhoyImage
     },
     {
-      title: "RETRO GAME",
-      desc: "A retro game engine built for modern web.",
+      title: "Therapy Track",
+      desc: "SAS Web platform for Behavior Analysts",
       icon: <Gamepad2 size={20}/>,
-      link: "#",
-      image: null
+      link: "https://track.xenomorphdev.qzz.io/",
+      image: therapyTrack
     },
     {
       title: "ROBOT INTERFACE",
