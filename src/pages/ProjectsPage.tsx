@@ -20,7 +20,7 @@ const ProjectsPage = () => {
     },
     {
       title: "Therapy Track",
-      desc: "SAS Web platform for Behavior Analysts",
+      desc: "SAAS Web platform for Behavior Analysts",
       icon: <Gamepad2 size={20}/>,
       link: "https://track.xenomorphdev.qzz.io/",
       image: therapyTrack

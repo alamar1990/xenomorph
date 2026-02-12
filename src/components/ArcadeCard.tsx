@@ -1,4 +1,5 @@
 import type {JSX} from "react";
+import {ExternalLink} from "lucide-react"; // Or any icon library you prefer
 
 interface ArcadeCardProps {
   project: {
@@ -14,7 +15,7 @@ const ArcadeCard = ({project}: ArcadeCardProps) => (
     className="group relative bg-[#1c1233] border-4 border-[#372661] hover:border-cyan-400 rounded-lg p-2 flex gap-3 items-center transition-all duration-200 cursor-pointer h-20 md:h-28 overflow-hidden">
 
     <div
-      className="w-12 h-12 md:w-20 md:h-20 bg-[#110a1f] border-2 border-[#4c3b73] shrink-0 rounded flex items-center justify-center overflow-hidden relative">
+      className="w-12 h-12 md:w-20 md:h-20 bg-[#110a1f] border-2 border-[#4c3b73] shrink-0 rounded flex items-center justify-center overflow-hidden relative group/img">
 
       {project.image ? (
         <>
@@ -23,9 +24,19 @@ const ArcadeCard = ({project}: ArcadeCardProps) => (
             alt={project.title}
             className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
           />
-          {/* Optional: Add a scanline effect over the image for retro vibe */}
+
           <div
             className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.2)_50%)] bg-[length:100%_4px] pointer-events-none"></div>
+
+          <a
+            href={project.image}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-200 z-10"
+            onClick={(e) => e.stopPropagation()} // Prevents the card's main click event
+          >
+            <ExternalLink className="w-4 h-4 text-cyan-400"/>
+          </a>
         </>
       ) : (
         <div className="scale-75 md:scale-100 text-purple-400 group-hover:text-cyan-300">
