@@ -7,6 +7,7 @@ interface ArcadeCardProps {
     desc: string;
     icon: JSX.Element;
     image?: string | null;
+    logo?: string;
   };
 }
 
@@ -20,7 +21,7 @@ const ArcadeCard = ({project}: ArcadeCardProps) => (
       {project.image ? (
         <>
           <img
-            src={project.image}
+            src={project.logo ?? project.image}
             alt={project.title}
             className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
           />

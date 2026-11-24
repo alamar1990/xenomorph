@@ -6,6 +6,10 @@ import ArcadeCard from "../components/ArcadeCard";
 import resumePdf from "../assets/Alain Marquez Software Engineer.pdf";
 import ipuhoyImage from '../assets/ipuhoy.jpg';
 import therapyTrack from '../assets/therapyTrack.jpg';
+import onlineBookingLogo from '../assets/logo_onlinebooking.svg';
+import onlineBookingImage from '../assets/onlinebooking_screenshot.png';
+import marketTrackerLogo from '../assets/logo_marketrack.png';
+import marketTrackerImage from '../assets/marketrack_screenshot.png';
 
 
 const ProjectsPage = () => {
@@ -24,6 +28,22 @@ const ProjectsPage = () => {
       icon: <Gamepad2 size={20}/>,
       link: "https://track.xenomorphdev.qzz.io/",
       image: therapyTrack
+    },
+    {
+      title: "Online Booking",
+      desc: "Booking websites with live availability for any business.",
+      icon: <Calendar size={20}/>,
+      link: "https://apptyard.dpdns.org/",
+      image: onlineBookingImage,
+      logo: onlineBookingLogo
+    },
+    {
+      title: "Market Tracker",
+      desc: "Trading signals, backtesting and risk controls.",
+      icon: <Bot size={20}/>,
+      link: "https://marketrack.xenomorphdev.qzz.io/",
+      image: marketTrackerImage,
+      logo: marketTrackerLogo
     },
     {
       title: "ROBOT INTERFACE",
